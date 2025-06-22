@@ -1,0 +1,45 @@
+------------------------------
+DOCUMENT TAGGING, ORGANIZATION, RETRIEVAL
+------------------------------
+
+Goal: 
+
+Create an AI Agent to classify, organize, and retrieve documents in Heritage Square Google Drive.
+
+Methods:
+
+Google Gemini - pick for its integration with Google Drive API
+
+Classification/Organization -
+
+For each document,
+1. Feed document contents and prompt asking to classify it into optimized LLM (using prompt engineering, fine-tuning, RAG).
+2. LLM returns tag(s) (limited to tags provided by Heritage Square).
+3. AI agent organizes file by appending date in format DDYYMM to end of file name.
+4. AI Agent places file in appropriate folder based on tag.
+
+Retrieval -
+
+Given a user prompt asking for documents meeting specific parameters (specific tag, date range, etc.):
+1. Create a NEW folder populated with all relevant documents related to user's search.
+2. Provide user with brief summary of folder contents AND suggestions for which files are most relevant to a user's search.
+
+------------------------------
+IMPROVED AI AGENT OUTPUT
+------------------------------
+
+Google Gemini - pick for its integration with Google Drive API
+DIFFERENT FROM CHATBOT PROCESSING DOCUMENTS
+
+Goal: 
+
+Improve Gemini output using LLM-specific optimizations
+
+Methods:
+
+Prompt Engineering - Use well-written, clear, concise prompts to guide LLM output to be relevant and effective
+Fine-tuning - Create a dataset of sample responses to tune LLM output to match desired tone and format
+Resource Augmented Generation (RAG) - Allow LLM to search Heritage Square's Google Drive to retrieve the top X relevant documents, will improve LLM output by introducing supplementary information.
+
+Input - User prompt asking for Chatbot generation of a resource (ex. email, document, etc.)
+Output - Relevant and accurate representation of requested resource
