@@ -17,6 +17,8 @@ Generates a document of type X using user-provided prompt.
 RESEARCH X
 Retrieve all documents relating to user-provided prompt.
 
+TODO: Add more specialized commands for GENERATE/RESEARCH queries
+
 '''
 
 valid_commands = ["TAG", "ORGANIZE", "RETRIEVE", "GENERATE", "RESEARCH"]
