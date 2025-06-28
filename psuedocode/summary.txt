@@ -1,0 +1,6 @@
+Ohack Summer 2025
+
+Created a system for document tagging, organization, and retrieval using prompt engineering, finetuning, and resource-augmented generation on Gemini model X
+Utilized prompt engineering, finetuning, and RAG to improve document tagging accuracy from X% to X%
+Utilized FILTER SYSTEM and further finetuning to train AI agent to carry out document retrieval related tasks
+Utilized RAG to enable AI agent to generate report type X, report type Y, boosting worker efficiency by X%
