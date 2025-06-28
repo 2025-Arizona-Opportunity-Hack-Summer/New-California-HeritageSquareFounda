@@ -38,4 +38,4 @@ for file in untagged:
     print("tagging done")
 
 # Pass list of now tagged documents into doc_organize.py
-
+# TODO: Link doc_tag.py with AI agent command so it can automatically tag any newly created files every X days.
