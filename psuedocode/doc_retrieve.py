@@ -1,59 +1,55 @@
+
 # doc_retrieve.py
-# Purpose: Retrieve documents based on provided tag and/or keyword
+# Purpose: Retrieve documents based on provided tag and/or year
 
 # TODO: global variable for valid_tags across multiple files?
-# imported from doc_tag.py
-valid_tags = ["Accounting", "Curation", "Development", 
-              "Employee Resources", "Board of Directors", "Marketing", 
-              "Operations", "Programming", "Research", 
-              "Images - Historic", "Images - General"]
+valid_tags = [
+    "Accounting", "Curation", "Development", 
+    "Employee Resources", "Board of Directors", "Marketing", 
+    "Operations", "Programming", "Research", 
+    "Images - Historic", "Images - General"
+]
 
-# Input: tag, year
-# Output: list of document names and locations tagged with the appropiate tag and date
-tag = ""
-year = 2020
+def retrieve_documents(tag: str = "", year: int = 2020):
+    current = 2025
+    matching = []
 
-# Type checking for inputs
+    # --- Type Checking ---
+    if not isinstance(tag, str):
+        print("❌ Tag must be a string.")
+        return []
+    
+    if not isinstance(year, int):
+        print("❌ Year must be an integer.")
+        return []
+    
+    if tag not in valid_tags:
+        print(f"❌ '{tag}' is not a valid tag. Valid options are:\n{', '.join(valid_tags)}")
+        return []
+    
+    if not (1980 <= year <= current + 1):
+        print(f"❌ Year {year} is out of range. Must be between 1980 and {current + 1}.")
+        return []
 
-# Check type of tag var
-if not isinstance(tag, str):
-    # return and ask user to reprompt with appropiate tag
-    print("tag is not of type str")
-# Check type of year var
-if not isinstance(year, int):
-    # return and ask user to reprompt with appropiate year
-    print("year is not of type int")
+    # --- Simulated File Search ---
+    print(f"🔍 Searching for documents tagged '{tag}' from year {year}...")
 
-# Check if input tag is a valid tag
-if tag not in valid_tags:
-    # return and ask user to reprompt with appropiate tag
-    print("tag not in valid_tags")
+    # Simulate search (Replace with actual Drive/file system lookup)
+    fake_drive = [
+        {"name": "budget_2020.pdf", "tag": "Accounting", "year": 2020},
+        {"name": "curation_plan_2023.docx", "tag": "Curation", "year": 2023},
+        {"name": "staff_memo_2020.pdf", "tag": "Employee Resources", "year": 2020},
+    ]
 
-# Get current year
-current = 2025
+    for file in fake_drive:
+        if file["tag"] == tag and file["year"] == year:
+            matching.append(file)
 
-# Check if year is in the valid range (1980-Current). 
-# current+1 allows for future year planning.
-if not 1980 <= year <= current+1:
-    # return and ask user to reprompt with appropiate year
-    print(f"year is not in valid range 1980 - {current+1}")
+    if matching:
+        print(f"✅ Found {len(matching)} matching document(s):")
+        for doc in matching:
+            print(f"📄 {doc['name']} ({doc['tag']}, {doc['year']})")
+    else:
+        print("❌ No matching documents found.")
 
-# Provided inputs are valid and we can now retrieve documents
-matching = [] # output
-
-# Navigate to appropiate folder
-target_folder = []
-# target_folder = drive.find(tag)
-
-# Check if each document in the target folder meets year criteria
-for file in target_folder:
-    # if file.year == year:
-    # matching.append(file)
-    print("file fetching")
-
-# return matching
-# TODO: Link doc_retrieve.py with AI agent command so it can retrieve files upon a query.
-
-
-
-
+    return matching
